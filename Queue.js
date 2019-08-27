@@ -1,4 +1,5 @@
-// 1. 用队列实现栈
+// https://zhuanlan.zhihu.com/p/57539549
+// https://juejin.im/post/5b3b559b5188251af86bc431
 /**
  * Initialize your data structure here.
  */
