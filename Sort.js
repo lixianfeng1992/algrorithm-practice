@@ -56,40 +56,58 @@
 /**
  * 快速排序
  */
-function quickSort(array) {
-  function swap(array, i, k) {
-    var temp = array[i];
-    array[i] = array[k];
-    array[k] = temp;
-  }
+// function quickSort(array) {
+//   function swap(array, i, k) {
+//     var temp = array[i];
+//     array[i] = array[k];
+//     array[k] = temp;
+//   }
 
-  function partition(array, left, right) {
-    var storeIndex = left;
-    var pivot = array[right];
-    for (var i = left; i < right; i++) {
-      if (array[i] < pivot) {
-        swap(array, storeIndex, i);
-        storeIndex++;
+//   function partition(array, left, right) {
+//     var storeIndex = left;
+//     var pivot = array[right];
+//     for (var i = left; i < right; i++) {
+//       if (array[i] < pivot) {
+//         swap(array, storeIndex, i);
+//         storeIndex++;
+//       }
+//     }
+//     swap(array, right, storeIndex);
+//     return storeIndex;
+//   }
+
+//   function sort(array, left, right) {
+//     if (left >= right) {
+//       return;
+//     }
+//     var storeIndex = partition(array, left, right);
+//     sort(array, left, storeIndex - 1);
+//     sort(array, storeIndex + 1, right);
+//   }
+
+//   sort(array, 0, array.length - 1);
+//   return array;
+// }
+
+/**
+ * 插入排序
+ */
+function insertionSort(array) {
+  let temp;
+  for (let i = 1; i < array.length; i++) {
+    temp = array[i];
+    for (let j = i; j >=0; j--) {
+      if (array[j - 1] > temp) {
+        array[j] = array[j - 1];
+      } else {
+        array[j] = temp;
+        break;
       }
     }
-    swap(array, right, storeIndex);
-    return storeIndex;
   }
-
-  function sort(array, left, right) {
-    if (left >= right) {
-      return;
-    }
-    var storeIndex = partition(array, left, right);
-    sort(array, left, storeIndex - 1);
-    sort(array, storeIndex + 1, right);
-  }
-
-  sort(array, 0, array.length - 1);
   return array;
 }
 
-
 let a = [3, 5, 1, 4, 2]
-quickSort(a, 5)
+insertionSort(a, 5)
 console.log(a)
